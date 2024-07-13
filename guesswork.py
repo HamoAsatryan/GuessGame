@@ -1,9 +1,9 @@
 from random import *
 
-s = int(input("Введите начало диапазона: "))
-q = int(input("Введите конец диапазона: "))
+s = int(input("Enter the beginning of the range: "))
+q = int(input("Enter the end of the range: "))
 num = randint(s, q)
-print("Добро пожаловать в числовую угадайку")
+print("Welcome to the numerical guessing game")
 
 
 def is_valid(n):
@@ -12,11 +12,11 @@ def is_valid(n):
 
 def input_num():
     while True:
-        guess = input(f"Введите число от {s} до {q}: ")
+        guess = input(f"Enter a number from {s} to {q}: ")
         if is_valid(guess):
             return int(guess)
         else:
-            print("А может быть все-таки введем целое число от 1 до 100?")
+            print("Can we still enter an integer from 1 to 100?")
 
 
 def compare_num():
@@ -24,16 +24,16 @@ def compare_num():
     while True:
         n = input_num()
         if n < num:
-            print("Ваше число меньше загаданного, попробуйте еще разок")
+            print("Your number is lower than your guess, try again.")
             count = count + 1
-            print("Количество неудачных попыток: ", count)
+            print("failure rate: ", count)
         elif n > num:
-            print("Ваше число больше загаданного, попробуйте еще разок")
+            print("Your number is higher than your guess, try again.")
             count = count + 1
-            print("Количество неудачных попыток: ", count)
+            print("failure rate: ", count)
         else:
-            print("Вы угадали, поздравляем!")
-            print("Количество неудачных попыток: ", count)
+            print("You guessed it, congratulations!")
+            print("failure rate: ", count)
             break
 
 
